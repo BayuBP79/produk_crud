@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2019 at 03:28 AM
+-- Generation Time: Jul 18, 2019 at 04:52 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.1.30
 
@@ -40,8 +40,9 @@ CREATE TABLE `kategori` (
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 (1, 'Minuman'),
 (2, 'Sport'),
-(5, 'Minuman Keras'),
-(6, 'Caitran');
+(5, 'Minuman Bersoda'),
+(6, 'Cairan'),
+(7, 'Berlabel Halal');
 
 -- --------------------------------------------------------
 
@@ -59,9 +60,10 @@ CREATE TABLE `merk` (
 --
 
 INSERT INTO `merk` (`id_merk`, `nama_merk`) VALUES
-(1, 'Adidasas'),
-(2, 'Bayu'),
-(3, 'Aqua');
+(1, 'Adidas'),
+(2, 'Sprit'),
+(3, 'Aqua'),
+(4, 'Coca Cola');
 
 -- --------------------------------------------------------
 
@@ -73,9 +75,9 @@ CREATE TABLE `produk` (
   `id_produk` int(10) NOT NULL,
   `nama` varchar(225) NOT NULL,
   `keterangan` text NOT NULL,
-  `warna` varchar(20) NOT NULL,
+  `warna` varchar(225) NOT NULL,
   `jumlah` int(10) NOT NULL,
-  `harga` int(11) NOT NULL,
+  `harga` int(10) NOT NULL,
   `id_merk` int(10) NOT NULL,
   `id_kategori` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -85,8 +87,7 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama`, `keterangan`, `warna`, `jumlah`, `harga`, `id_merk`, `id_kategori`) VALUES
-(1280140229, 'Air ZamZam', 'Menyehatkan', 'Hitam', 20, 20000, 2, 1),
-(2147483647, 'Air Mineral', 'Menyegarkan Mmmm', 'Hitam', 20, 20000, 2, 5);
+(5, 'cc12', 'Segernya', 'Coklat', 500, 3000, 2, 5);
 
 --
 -- Indexes for dumped tables
@@ -118,19 +119,19 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kategori` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `merk`
 --
 ALTER TABLE `merk`
-  MODIFY `id_merk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_merk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483648;
+  MODIFY `id_produk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,6 +1,9 @@
 <html>
     <head>
         <title>Tabel Karywan</title>
+
+        <link rel="stylesheet" type="text/css" href="assets/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <?php
         include 'koneksi.php';
         include 'style.php';
@@ -26,6 +29,7 @@
                                 <input type="hidden" name="id_kategori" value="<?= $value['id_kategori']; ?>">
                             </div>
                             <div class="form-group">
+                                <label>Nama Kategori :</label>
                                 <input required="required" type="text" class="form-control" name="nama_kategori" placeholder="Nama Kategori" value="<?php echo $value['nama_kategori']; ?>">
                             </div>
                             <div class="form-group">

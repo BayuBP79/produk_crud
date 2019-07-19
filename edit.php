@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Edit Produk</title>
+
+        <link rel="stylesheet" type="text/css" href="assets/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         
@@ -13,6 +16,7 @@
                 <div class="modal-body">
                     <form class="" action="update.php" method="post">
                         <div class="form-group">
+                            <label>Kategori :</label>
                             <select required="required" class="custom-select" name="id_kategori">             
                                 <?php
                                 $kode = mysqli_query(mysqli_connect('localhost', 'root', '', 'onlen'), "SELECT * FROM kategori");
@@ -30,19 +34,24 @@
                         while ($value = mysqli_fetch_assoc($kode)) {
                         ?>
                         <div class="form-group">
+                            <label>Nama Produk :</label>
                             <input type="hidden" name="id_produk" value="<?= $value['id_produk']; ?>">
                             <input required="required" type="text" class="form-control" name="nama" value="<?= $value['nama']; ?>">
                         </div>
                         <div class="form-group">
+                            <label>Warna Produk :</label>
                             <input required="required" type="text" class="form-control" name="warna" value="<?= $value['warna']; ?>">
                         </div>
                         <div class="form-group">
+                            <label>Jumlah Produk :</label>
                             <input required="required" type="number" class="form-control" name="jumlah" value="<?= $value['jumlah']; ?>">
                         </div>
                         <div class="form-group">
+                            <label>Harga Produk :</label>
                             <input required="required" type="number" class="form-control" name="harga" value="<?= $value['harga']; ?>">
                         </div>
                         <div class="form-group">
+                            <label>Merk Produk</label>
                             <select required="required" class="custom-select" name="id_merk">
                                 <?php
                                 $kode = mysqli_query(mysqli_connect('localhost', 'root', '', 'onlen'), "SELECT * FROM merk");
@@ -53,6 +62,7 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label>Keterangan :</label>
                             <textarea required="required" style="margin-top: 20px;" name="keterangan" rows="5"   class="form-control"><?= $value['keterangan']; ?></textarea>
                         </div>
                         <?php } ?>

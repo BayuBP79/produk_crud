@@ -1,6 +1,9 @@
 <html>
     <head>
         <title>Tabel Karywan</title>
+
+        <link rel="stylesheet" type="text/css" href="assets/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <?php
         include 'koneksi.php';
         include 'style.php';
@@ -24,6 +27,7 @@
                             <input type="hidden" name="id_merk" value="<?= $value['id_merk']; ?>">
                         </div>
                         <div class="form-group">
+                            <label>Nama Merk :</label>
                             <input required="required" type="text" class="form-control" name="nama_merk" value="<?= $value['nama_merk']; ?>">
                         </div>
                         <div class="form-group">
