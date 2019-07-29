@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2019 at 04:52 AM
+-- Generation Time: Jul 19, 2019 at 03:18 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.1.30
 
@@ -40,9 +40,11 @@ CREATE TABLE `kategori` (
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 (1, 'Minuman'),
 (2, 'Sport'),
-(5, 'Minuman Bersoda'),
+(5, 'Gas'),
 (6, 'Cairan'),
-(7, 'Berlabel Halal');
+(8, 'Perabotan Rumah Tangga'),
+(9, 'HP'),
+(10, 'Laptop');
 
 -- --------------------------------------------------------
 
@@ -60,10 +62,11 @@ CREATE TABLE `merk` (
 --
 
 INSERT INTO `merk` (`id_merk`, `nama_merk`) VALUES
-(1, 'Adidas'),
 (2, 'Sprit'),
 (3, 'Aqua'),
-(4, 'Coca Cola');
+(4, 'Coca Cola'),
+(5, 'Kaki Lima'),
+(6, 'Gringseng');
 
 -- --------------------------------------------------------
 
@@ -87,7 +90,10 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama`, `keterangan`, `warna`, `jumlah`, `harga`, `id_merk`, `id_kategori`) VALUES
-(5, 'cc12', 'Segernya', 'Coklat', 500, 3000, 2, 5);
+(5, 'cc12', 'Segernya', 'Coklat', 100, 3000, 5, 8),
+(6, 'CC122', 'Bersoda', 'Coklat', 10000, 30000, 4, 5),
+(7, 'Sapu', 'Kebersihan yang utama', 'Cream', 20, 5000, 1, 8),
+(8, 'Air ZamZam', 'ffg', 'Hitam', 56, 5000, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -97,19 +103,24 @@ INSERT INTO `produk` (`id_produk`, `nama`, `keterangan`, `warna`, `jumlah`, `har
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`id_kategori`);
+  ADD PRIMARY KEY (`id_kategori`),
+  ADD KEY `id_kategori` (`id_kategori`),
+  ADD KEY `id_kategori_2` (`id_kategori`);
 
 --
 -- Indexes for table `merk`
 --
 ALTER TABLE `merk`
-  ADD PRIMARY KEY (`id_merk`);
+  ADD PRIMARY KEY (`id_merk`),
+  ADD KEY `id_merk` (`id_merk`);
 
 --
 -- Indexes for table `produk`
 --
 ALTER TABLE `produk`
-  ADD PRIMARY KEY (`id_produk`);
+  ADD PRIMARY KEY (`id_produk`),
+  ADD KEY `id_merk` (`id_merk`),
+  ADD KEY `id_kategori` (`id_kategori`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -119,19 +130,29 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_kategori` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `merk`
 --
 ALTER TABLE `merk`
-  MODIFY `id_merk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_merk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_produk` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `produk`
+--
+ALTER TABLE `produk`
+  ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
